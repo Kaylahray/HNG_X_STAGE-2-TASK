@@ -4,7 +4,7 @@
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0.5) 100%
     ),
-    url("/Background.png"), lightgray 50% / cover no-repeat;
+    url("../../assests/Background.png"), lightgray 50% / cover no-repeat;
   height: 600px;
   width: 100%;
 }
@@ -18,7 +18,7 @@
 .img {
   width: 50px;
   height: 50px;
-  background: url("/tv.png"), transparent 50% / cover no-repeat;
+  background: url("../../assests/tv.png"), transparent 50% / cover no-repeat;
 }
 .box {
   display: inline-flex;
