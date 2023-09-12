@@ -65,7 +65,7 @@
   display: inline-flex;
   align-items: center;
   gap: 27px;
-  margin-left: 210px;
+  /* margin-left: 210px; */
 }
 .sign p {
   color: #fff;
