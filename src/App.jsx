@@ -1,11 +1,17 @@
+/* eslint-disable no-undef */
 import "./App.css";
-import LandingPage from "./Pages/LandingPage/LandingPage";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage/HomePage";
+import "react-loading-skeleton/dist/skeleton.css";
+import MovieDetail from "./Pages/MovieDetail/MovieDetail";
 
 function App() {
   return (
-    <div className="container">
-      <LandingPage />
-    </div>
+    <Routes>
+      <Route index element={<HomePage />} />
+      <Route path="/*" element={<h2>Error</h2>} />
+      <Route path="movie/:id" element={<MovieDetail />} />
+    </Routes>
   );
 }
 

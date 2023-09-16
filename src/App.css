@@ -4,7 +4,119 @@
   box-sizing: border-box;
 }
 .container {
+  margin-inline: 1.5rem;
   max-width: 1440px;
+}
+.movieBox {
+  display: grid;
+  place-items: center;
+  min-height: 700px;
+  padding: 20px;
+  row-gap: 30px;
+}
+.card {
+  display: flex;
+  /* flex-grow: 1; */
+  width: 300px;
+  border: 2px solid rgb(31, 28, 28);
+  min-height: 500px;
+  height: auto;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.card img {
   width: 100%;
-  /* padding: 2rem; */
+  height: 370px;
+  object-fit: cover;
+  object-position: center center;
+}
+.card__runtime {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+.release_date {
+  color: #000;
+}
+.three {
+  background-color: green;
+  height: 20px;
+}
+.three p {
+  color: #000;
+}
+.one,
+.two {
+  display: flex;
+  color: var(--gray-900, #111827);
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px; /* 100% */
+  width: 48%;
+  gap: 5px;
+  align-items: center;
+}
+.two {
+  justify-content: center;
+}
+.one .imdb {
+  object-fit: cover;
+  object-position: center center;
+  height: 17px;
+  width: 35px;
+}
+.two img {
+  width: 16px;
+  height: 17px;
+}
+
+.card__title {
+  color: var(--gray-900, #111827);
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  text-align: left;
+  line-height: normal;
+}
+.featured {
+  color: #000;
+  font-family: DM Sans;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+}
+
+.featured span {
+  color: red;
+  font-size: 20px;
+}
+@media screen and (min-width: 768px) {
+  .movieBox {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+@media screen and (min-width: 960px) {
+  .movieBox {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .movieBox {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    margin-inline: auto;
+  }
 }
