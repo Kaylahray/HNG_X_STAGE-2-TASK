@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import LandingPage from "../LandingPage/LandingPage";
-import MovieBox from "../../Componentss/movieBox";
+import MovieBoxx from "../../Componentss/MovieBoxx";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 const HomePage = () => {
@@ -28,8 +28,8 @@ const HomePage = () => {
   return (
     <>
       <LandingPage movies={movies} />
-      
-      <MovieBox movies={movies} />
+
+      <MovieBoxx movies={movies} />
     </>
   );
 };
