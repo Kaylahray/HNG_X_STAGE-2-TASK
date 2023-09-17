@@ -27,10 +27,12 @@ const MovieBoxx = ({ movies }) => {
       </div>
       <div className="movieBox">
         {movies.slice(0, visible).map((movie) => {
+          const { release_date } = movie;
+          const variable = new Date(release_date).toUTCString();
           return (
             <>
               {isLoading ? (
-                <div className="chi">
+                <div className="card">
                   <SkeletonTheme color="#202020" highlightColor="#444">
                     <Skeleton height={300} duration={2} />
                   </SkeletonTheme>
@@ -43,7 +45,7 @@ const MovieBoxx = ({ movies }) => {
                 </div>
               ) : (
                 <Link
-                  to={`/movie/${movie.id}`}
+                  to={`/movies/${movie.id}`}
                   style={{ textDecoration: "none", color: "white" }}
                   key={movie.original_title}
                 >
@@ -57,15 +59,15 @@ const MovieBoxx = ({ movies }) => {
                       alt="poster"
                     />
 
-                    <div
+                    <p
                       className="release_date"
                       data-testid="movie-release-date"
                     >
-                      {movie && movie.release_date}
-                    </div>
-                    <div className="card__title" data-testid="movie-title">
-                      {movie ? movie.original_title.slice(0, 100) + ".." : " "}
-                    </div>
+                      {variable}
+                    </p>
+                    <p className="card__title" data-testid="movie-title">
+                      {movie.original_title}
+                    </p>
 
                     <div className="card__runtime">
                       <div className="one">
@@ -94,25 +96,3 @@ const MovieBoxx = ({ movies }) => {
 };
 
 export default MovieBoxx;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

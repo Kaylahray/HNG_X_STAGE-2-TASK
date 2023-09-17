@@ -8,15 +8,9 @@ import { GoHome } from "react-icons/go";
 const MovieDetail = () => {
   const [movieDetail, setMovieDetail] = useState([]);
   const { id } = useParams();
-  console.log(id);
+  const { release_date } = movieDetail;
+  const variable = new Date(release_date).toUTCString();
 
-  const convertDate = (date) => {
-    if (!date) {
-      return "";
-    }
-    const releaseDate = new Date(date).toISOString();
-    return releaseDate;
-  };
   useEffect(() => {
     const getData = async () => {
       try {
@@ -60,15 +54,12 @@ const MovieDetail = () => {
           <div className="info_cont">
             <div className="info">
               <div className="info_pages">
-                <div className="info_page_name" data-testid="movie-title">
-                  {movieDetail && movieDetail.title} •{" "}
-                  <span data-testid="movie-release-date">
-                    {movieDetail && convertDate(movieDetail.release_date)}
-                  </span>{" "}
-                  • <span>PG-13 </span> •
-                  <span data-testid="movie-runtime">
-                    {movieDetail.runtime}m
-                  </span>
+                <div className="info_page_name">
+                  <span data-testid="movie-title">{movieDetail.title}</span>
+
+                  <span data-testid="movie-release-date">{variable}</span>
+                  <span>PG-13 </span>
+                  <span data-testid="movie-runtime">{movieDetail.runtime}</span>
                 </div>
                 <div className="action">
                   {movieDetail.genres &&
@@ -84,9 +75,7 @@ const MovieDetail = () => {
             <div className="info_text_box">
               <div className="info_text">
                 <p className="p_info" data-testid="movie-overview">
-                  {movieDetail && movieDetail.overview
-                    ? movieDetail.overview.slice(0, 118) + "..."
-                    : ""}
+                  {movieDetail.overview}
                 </p>
                 <div className="author">
                   Director : <span> Joseph Kosinski</span>
